@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="hintedittext">#736A6A</color>
+    <color name="blue">#4285F4</color>
+    <color name="abu">#676D75</color>
+    <color name="bgbtnprofile">#1D1F24</color>
+</resources>
