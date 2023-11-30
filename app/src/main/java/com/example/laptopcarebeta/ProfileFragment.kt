@@ -69,9 +69,17 @@ class ProfileFragment : Fragment() {
         }
 
         profilebtnmyaccountlinearlayout.setOnClickListener {
-            val newFragment = myaccountFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
+            val MyAccountFragment = myaccountFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragmentContainerView1, newFragment) // Ganti R.id.fragment_container dengan ID container fragment Anda
+            transaction.replace(R.id.fragmentContainerView1, MyAccountFragment) // Ganti R.id.fragment_container dengan ID container fragment Anda
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        profilebtnmylaptoplinearlayout.setOnClickListener {
+            val mylaptopFragment = MyLaptopFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainerView1, mylaptopFragment) // Ganti R.id.fragment_container dengan ID container fragment Anda
             transaction.addToBackStack(null)
             transaction.commit()
         }

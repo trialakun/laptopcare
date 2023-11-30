@@ -38,6 +38,6 @@
     <fragment
         android:id="@+id/mylaptopFragment"
         android:name="com.example.laptopcarebeta.MyLaptopFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+        android:label="fragment_mylaptop"
+        tools:layout="@layout/fragment_mylaptop" />
 </navigation>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".MyLaptopFragment">
+
+    <ImageView
+        android:id="@+id/btnbackdarimylaptoptoprofile"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/MyLaptopTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_laptop"
+        android:textColor="@color/white"
+        android:fontFamily="@font/playpensans"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/MyAccountIconLinearLayout"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:background="@drawable/shape_profile2"
+        app:layout_constraintTop_toBottomOf="@+id/MyLaptopTitleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/laptop"
+            android:contentDescription="@string/todo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/MyAccountInfoLaptopLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/MyAccountIconLinearLayout"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:id="@+id/MyLaptopMerkTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/merk_laptop"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:fontFamily="@font/playpensans"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/MyLaptopTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/playpensans"
+            android:text="@string/type_laptop"
+            android:textColor="@color/abu2"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/MyAccountInfoLaptopLinearLayout"
+        android:layout_marginTop="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/MyLaptopNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans"
+                android:text="@string/laptop_name"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/MyLaptopNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/shape_edittext"
+                android:fontFamily="@font/playpensans"
+                android:hint="@string/cek_disetting_atau_dianalisis"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="Autofill,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/MyLaptopSistemOperasiTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans"
+                android:text="@string/sistem_operasi"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/MyLaptopSistemOperasiEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/shape_edittext"
+                android:fontFamily="@font/playpensans"
+                android:hint="@string/ex_windows_macos_linux"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="Autofill,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/MyLaptopProcessorTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans"
+                android:text="@string/processor"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/MyLaptopProcessorEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/shape_edittext"
+                android:fontFamily="@font/playpensans"
+                android:hint="@string/ex_intel_amd_dll"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="Autofill,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/MyLaptopMerkLaptopTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans"
+                android:text="@string/merk_laptop"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/MyLaptopMerkLaptopEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/shape_edittext"
+                android:fontFamily="@font/playpensans"
+                android:hint="@string/terdapat_dibawah_laptop"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="Autofill,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/MyLaptopTypeLaptopTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans"
+                android:text="@string/type_laptop"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/MyLaptopTypeLaptopEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/shape_edittext"
+                android:fontFamily="@font/playpensans"
+                android:hint="@string/terdapat_dibawah_laptop"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginBottom="25dp"
+                tools:ignore="Autofill,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
+
+            <Button
+                android:id="@+id/MyLaptopBtnUpdateButton"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button"
+                android:text="@string/update"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

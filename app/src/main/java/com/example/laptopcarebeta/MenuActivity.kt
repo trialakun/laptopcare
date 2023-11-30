@@ -18,7 +18,7 @@ class MenuActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView1) as NavHostFragment
 
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setupWithNavController(navController)
 
         val appBarConfiguration = AppBarConfiguration(

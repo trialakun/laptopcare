@@ -43,4 +43,13 @@
     <string name="masukkan_nama_baru">Masukkan Nama Baru</string>
     <string name="masukkan_email_baru">Masukkan Email Baru</string>
     <string name="update">Update</string>
+    <string name="merk_laptop">Merk Laptop</string>
+    <string name="type_laptop">Type Laptop</string>
+    <string name="laptop_name">Laptop Name</string>
+    <string name="cek_disetting_atau_dianalisis">cek disetting atau dianalisis</string>
+    <string name="sistem_operasi">Sistem Operasi</string>
+    <string name="ex_windows_macos_linux">Ex. Windows, MacOS, Linux</string>
+    <string name="processor">Processor</string>
+    <string name="ex_intel_amd_dll">Ex. Intel, AMD, Dll</string>
+    <string name="terdapat_dibawah_laptop">Terdapat dibawah laptop</string>
 </resources>
