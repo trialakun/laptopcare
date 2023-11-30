@@ -67,5 +67,13 @@ class ProfileFragment : Fragment() {
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }
+
+        profilebtnmyaccountlinearlayout.setOnClickListener {
+            val newFragment = myaccountFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainerView1, newFragment) // Ganti R.id.fragment_container dengan ID container fragment Anda
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
     }
 }
