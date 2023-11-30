@@ -52,4 +52,11 @@
     <string name="processor">Processor</string>
     <string name="ex_intel_amd_dll">Ex. Intel, AMD, Dll</string>
     <string name="terdapat_dibawah_laptop">Terdapat dibawah laptop</string>
+    <string name="tim_pengembang">Tim Pengembang</string>
+    <string name="AboutAppKataKata">LaptopCare hadir dengan tujuan memastikan bahwa laptop Anda selalu dalam kondisi optimal. Dengan fokus pada perawatan, analisis, dan peningkatan kinerja, aplikasi ini bertujuan untuk menjadi teman setia Anda dalam menjaga kesehatan perangkat.</string>
+    <string name="mikola_dalifa">Mikola Dalifa</string>
+    <string name="_21076101">21076101</string>
+    <string name="pendidikan_teknik_informatika">Pendidikan Teknik Informatika</string>
+    <string name="versi_aplikasi">Versi Aplikasi</string>
+    <string name="v1_0_0">V1.0.0</string>
 </resources>

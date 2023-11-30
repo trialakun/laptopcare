@@ -32,7 +32,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/myaccountFragment"
-        android:name="com.example.laptopcarebeta.myaccountFragment"
+        android:name="com.example.laptopcarebeta.MyAccountFragment"
         android:label="fragment_myaccount"
         tools:layout="@layout/fragment_myaccount" />
     <fragment
@@ -40,4 +40,9 @@
         android:name="com.example.laptopcarebeta.MyLaptopFragment"
         android:label="fragment_mylaptop"
         tools:layout="@layout/fragment_mylaptop" />
+    <fragment
+        android:id="@+id/aboutappFragment"
+        android:name="com.example.laptopcarebeta.aboutappFragment"
+        android:label="fragment_aboutapp"
+        tools:layout="@layout/fragment_aboutapp" />
 </navigation>

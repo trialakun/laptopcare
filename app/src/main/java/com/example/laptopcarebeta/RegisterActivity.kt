@@ -8,8 +8,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.RetryPolicy
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
@@ -72,7 +74,10 @@ class RegisterActivity : AppCompatActivity() {
                             return params
                         }
                     }
-
+                    val socketTimeout = 30000 // 30 detik
+                    val policy: RetryPolicy = DefaultRetryPolicy(socketTimeout,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
+                    stringRequest.retryPolicy = policy
                     val requestQueue = Volley.newRequestQueue(this)
                     requestQueue.add(stringRequest)
                 }else{

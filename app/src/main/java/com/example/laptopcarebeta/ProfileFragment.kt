@@ -57,6 +57,7 @@ class ProfileFragment : Fragment() {
                 DialogInterface.OnClickListener { dialog, which -> // Lakukan logout atau action yang sesuai di sini
                     Toast.makeText(context, "Kamu sudah logout", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(requireActivity(), MainActivity::class.java))
+                    requireActivity().finish()
                 })
 
             builder.setNegativeButton("Batal",
@@ -69,7 +70,7 @@ class ProfileFragment : Fragment() {
         }
 
         profilebtnmyaccountlinearlayout.setOnClickListener {
-            val MyAccountFragment = myaccountFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
+            val MyAccountFragment = MyAccountFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView1, MyAccountFragment) // Ganti R.id.fragment_container dengan ID container fragment Anda
             transaction.addToBackStack(null)
@@ -80,6 +81,14 @@ class ProfileFragment : Fragment() {
             val mylaptopFragment = MyLaptopFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView1, mylaptopFragment) // Ganti R.id.fragment_container dengan ID container fragment Anda
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        profilebtnaboutapplinearlayout.setOnClickListener {
+            val aboutappFragment = aboutappFragment() // Ganti NewFragment dengan fragment yang ingin ditampilkan
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainerView1, aboutappFragment) // Ganti R.id.fragment_container dengan ID container fragment Anda
             transaction.addToBackStack(null)
             transaction.commit()
         }

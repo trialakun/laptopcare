@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/MyLaptopTitleTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:gravity="center">
 
         <ImageView
@@ -58,7 +58,7 @@
         android:paddingRight="20dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/MyAccountIconLinearLayout"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/MyLaptopMerkTextView"
@@ -87,7 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/MyAccountInfoLaptopLinearLayout"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,7 +129,6 @@
                 android:text="@string/sistem_operasi"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"/>
 
             <EditText
@@ -155,7 +154,6 @@
                 android:text="@string/processor"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"/>
 
             <EditText
@@ -181,7 +179,6 @@
                 android:text="@string/merk_laptop"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"/>
 
             <EditText
@@ -207,7 +204,6 @@
                 android:text="@string/type_laptop"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"/>
 
             <EditText
@@ -222,7 +218,7 @@
                 android:paddingEnd="10dp"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="10dp"
                 tools:ignore="Autofill,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
 
             <Button
