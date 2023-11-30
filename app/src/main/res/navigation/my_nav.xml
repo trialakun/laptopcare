@@ -31,8 +31,13 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/myaccountFragment3"
+        android:id="@+id/myaccountFragment"
         android:name="com.example.laptopcarebeta.myaccountFragment"
         android:label="fragment_myaccount"
         tools:layout="@layout/fragment_myaccount" />
+    <fragment
+        android:id="@+id/mylaptopFragment"
+        android:name="com.example.laptopcarebeta.MyLaptopFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
 </navigation>

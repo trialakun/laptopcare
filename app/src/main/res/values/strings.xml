@@ -40,4 +40,7 @@
     <string name="my_laptop">My Laptop</string>
     <string name="make_changes_to_your_account">Make changes to your account</string>
     <string name="my_account">My Account</string>
+    <string name="masukkan_nama_baru">Masukkan Nama Baru</string>
+    <string name="masukkan_email_baru">Masukkan Email Baru</string>
+    <string name="update">Update</string>
 </resources>
