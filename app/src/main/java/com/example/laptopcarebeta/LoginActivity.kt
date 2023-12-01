@@ -54,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
                             val idAkun = jsonResponse.getString("id_akun")
                             val namaAkun = jsonResponse.getString("nama_akun")
                             val usr = jsonResponse.getString("username")
+                            val eml = jsonResponse.getString("email")
 
                             // Simpan id_akun dan nama_akun di sini, misalnya menggunakan SharedPreferences
                             val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
@@ -61,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
                             editor.putString("id_akun", idAkun)
                             editor.putString("nama_akun", namaAkun)
                             editor.putString("username", usr)
+                            editor.putString("email", eml)
                             editor.apply()
 
                             Toast.makeText(applicationContext, jsonResponse.getString("message"), Toast.LENGTH_SHORT).show()

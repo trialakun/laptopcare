@@ -38,9 +38,12 @@ class MyAccountFragment : Fragment() {
         val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val namaAkun = sharedPreferences.getString("nama_akun", "")
         val userName = sharedPreferences.getString("username", "")
+        val email = sharedPreferences.getString("email", "")
 
         myaccountnamausertextview.text = "$namaAkun"
         myaccountusernameltextview.text = "$userName"
+        myaccountnamaedittext.setText("$namaAkun")
+        myaccountemailEdittext.setText("$email")
 
         btnbackdarimyaccounttoprofile.setOnClickListener {
             requireActivity().onBackPressed()
