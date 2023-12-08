@@ -44,9 +44,10 @@ class HomeFragment : Fragment() {
             .setTitle("Keluar dari Aplikasi")
             .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
             .setPositiveButton("Ya") { _, _ ->
-                // Lakukan logout atau keluar dari aplikasi di sini
-                // Misalnya:
-                // sharedPreferences.edit().clear().apply()
+                val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.clear() // Menghapus semua data dari SharedPreferences
+                editor.apply()
                 requireActivity().finish()
             }
             .setNegativeButton("Tidak", null)

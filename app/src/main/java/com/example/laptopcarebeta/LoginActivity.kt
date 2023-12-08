@@ -56,6 +56,14 @@ class LoginActivity : AppCompatActivity() {
                             val usr = jsonResponse.getString("username")
                             val eml = jsonResponse.getString("email")
 
+                            //laptop
+                            val idLaptop = jsonResponse.getString("id_laptop")
+                            val namalaptop = jsonResponse.getString("nama_laptop")
+                            val sistemoperasi = jsonResponse.getString("sistem_operasi")
+                            val processorl = jsonResponse.getString("processor")
+                            val merklaptop = jsonResponse.getString("merk_laptop")
+                            val typelaptop = jsonResponse.getString("type_laptop")
+
                             // Simpan id_akun dan nama_akun di sini, misalnya menggunakan SharedPreferences
                             val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
@@ -63,6 +71,13 @@ class LoginActivity : AppCompatActivity() {
                             editor.putString("nama_akun", namaAkun)
                             editor.putString("username", usr)
                             editor.putString("email", eml)
+                            // laptop
+                            editor.putString("id_laptop", idLaptop)
+                            editor.putString("nama_laptop", namalaptop)
+                            editor.putString("sistem_operasi", sistemoperasi)
+                            editor.putString("processor", processorl)
+                            editor.putString("merk_laptop", merklaptop)
+                            editor.putString("type_laptop", typelaptop)
                             editor.apply()
 
                             Toast.makeText(applicationContext, jsonResponse.getString("message"), Toast.LENGTH_SHORT).show()

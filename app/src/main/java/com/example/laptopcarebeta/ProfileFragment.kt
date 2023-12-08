@@ -3,6 +3,7 @@ package com.example.laptopcarebeta
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,6 +57,10 @@ class ProfileFragment : Fragment() {
             builder.setPositiveButton("Ya",
                 DialogInterface.OnClickListener { dialog, which -> // Lakukan logout atau action yang sesuai di sini
                     Toast.makeText(context, "Kamu sudah logout", Toast.LENGTH_SHORT).show()
+                    val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.clear() // Menghapus semua data dari SharedPreferences
+                    editor.apply()
                     startActivity(Intent(requireActivity(), MainActivity::class.java))
                     requireActivity().finish()
                 })
