@@ -15,6 +15,11 @@ class HomeFragment : Fragment() {
 
     private lateinit var homenamausertextview: TextView
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var homenamalaptoptextview: TextView
+    private lateinit var homesistemoperasitextview: TextView
+    private lateinit var homeprocessortextview: TextView
+    private lateinit var homemerklaptoptextview: TextView
+    private lateinit var hometypelaptoptextview: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +33,25 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val namaAkun = sharedPreferences.getString("nama_akun", "")
+        val namaLaptop = sharedPreferences.getString("nama_laptop", "")
+        val sistemoperasi = sharedPreferences.getString("sistem_operasi", "")
+        val processorl = sharedPreferences.getString("processor", "")
+        val merklaptop = sharedPreferences.getString("merk_laptop", "")
+        val typelaptop = sharedPreferences.getString("type_laptop", "")
+
         homenamausertextview = view.findViewById(R.id.HomeNamaUserTextView)
+        homenamalaptoptextview = view.findViewById(R.id.HomeNamaLaptopTextView)
+        homesistemoperasitextview = view.findViewById(R.id.HomeSistemOperasiLaptopTextView)
+        homeprocessortextview = view.findViewById(R.id.HomeProcessorLaptopTextView)
+        homemerklaptoptextview = view.findViewById(R.id.HomeMerkLaptopTextView)
+        hometypelaptoptextview = view.findViewById(R.id.HomeTypeLaptopTextView)
+
         homenamausertextview.text = "$namaAkun"
+        homenamalaptoptextview.text = "$namaLaptop"
+        homesistemoperasitextview.text = "$sistemoperasi"
+        homeprocessortextview.text = "$processorl"
+        homemerklaptoptextview.text = "$merklaptop"
+        hometypelaptoptextview.text = "$typelaptop"
     }
 
     override fun onResume() {
