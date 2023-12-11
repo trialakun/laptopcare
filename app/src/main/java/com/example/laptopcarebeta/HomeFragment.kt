@@ -10,6 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.addCallback
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 class HomeFragment : Fragment() {
 
@@ -20,6 +26,9 @@ class HomeFragment : Fragment() {
     private lateinit var homeprocessortextview: TextView
     private lateinit var homemerklaptoptextview: TextView
     private lateinit var hometypelaptoptextview: TextView
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: HomeInfoLaptopAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +48,11 @@ class HomeFragment : Fragment() {
         val merklaptop = sharedPreferences.getString("merk_laptop", "")
         val typelaptop = sharedPreferences.getString("type_laptop", "")
 
+        recyclerView = view.findViewById(R.id.HomeInfoLaptopRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        adapter = HomeInfoLaptopAdapter(ArrayList())
+        recyclerView.adapter = adapter
+
         homenamausertextview = view.findViewById(R.id.HomeNamaUserTextView)
         homenamalaptoptextview = view.findViewById(R.id.HomeNamaLaptopTextView)
         homesistemoperasitextview = view.findViewById(R.id.HomeSistemOperasiLaptopTextView)
@@ -52,6 +66,30 @@ class HomeFragment : Fragment() {
         homeprocessortextview.text = "$processorl"
         homemerklaptoptextview.text = "$merklaptop"
         hometypelaptoptextview.text = "$typelaptop"
+
+        val url = "https://mieruch.000webhostapp.com/info_laptop.php"
+        val requestQueue = Volley.newRequestQueue(activity)
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val jsonObject = JSONObject(response)
+                val jsonArray = jsonObject.getJSONArray("data")
+                val infolaptopList = ArrayList<Modelinfolaptop>()
+                for (i in 0 until jsonArray.length()) {
+                    val jsonObject = jsonArray.getJSONObject(i)
+                    val idinfolaptop = jsonObject.getInt("id_info_laptop")
+                    val namainfolaptop = jsonObject.getString("nama_info_laptop")
+                    val desinfolaptop = jsonObject.getString("des_info_laptop")
+                    infolaptopList.add(Modelinfolaptop(idinfolaptop, namainfolaptop, desinfolaptop))
+                }
+                adapter.infolaptopList = infolaptopList
+                adapter.notifyDataSetChanged()
+            },
+            { error ->
+                //
+            })
+        requestQueue.add(stringRequest)
+
     }
 
     override fun onResume() {
