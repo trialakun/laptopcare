@@ -50,4 +50,9 @@
         android:name="com.example.laptopcarebeta.DetailInfoLaptopFragment"
         android:label="fragment_detail_info_laptop"
         tools:layout="@layout/fragment_detail_info_laptop" />
+    <fragment
+        android:id="@+id/detailCareFragment"
+        android:name="com.example.laptopcarebeta.DetailCareFragment"
+        android:label="fragment_detail_care"
+        tools:layout="@layout/fragment_detail_care" />
 </navigation>

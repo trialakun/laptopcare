@@ -61,4 +61,8 @@
     <string name="v1_0_0">V1.0.0</string>
     <string name="informasi_laptop">Informasi Laptop</string>
     <string name="deskripsi_informasi_laptop">Deskripsi Informasi Laptop</string>
+    <string name="cara_perawatan_laptop">Cara Perawatan Laptop</string>
+    <string name="deskripsi_cara_perawatan_laptop">Deskripsi Cara Perawatan Laptop</string>
+    <string name="informasi_care">Informasi Care</string>
+    <string name="deskripsi_informasi_care">Deskripsi Informasi Care</string>
 </resources>
