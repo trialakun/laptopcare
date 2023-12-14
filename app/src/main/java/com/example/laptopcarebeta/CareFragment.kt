@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -38,20 +39,25 @@ class CareFragment : Fragment() {
             Request.Method.GET, url,
             { response ->
                 val jsonObject = JSONObject(response)
-                val jsonArray = jsonObject.getJSONArray("data")
-                val careList = ArrayList<ModelLaptopCare>()
-                for (i in 0 until jsonArray.length()) {
-                    val jsonObject = jsonArray.getJSONObject(i)
-                    val idcare = jsonObject.getInt("id_care")
-                    val judulcare = jsonObject.getString("judul_care")
-                    val descare = jsonObject.getString("des_care")
-                    careList.add(ModelLaptopCare(idcare, judulcare, descare))
+                if (jsonObject.has("data")) {
+                    val jsonArray = jsonObject.getJSONArray("data")
+                    val careList = ArrayList<ModelLaptopCare>()
+                    for (i in 0 until jsonArray.length()) {
+                        val jsonObject = jsonArray.getJSONObject(i)
+                        val idcare = jsonObject.getInt("id_care")
+                        val judulcare = jsonObject.getString("judul_care")
+                        val descare = jsonObject.getString("des_care")
+                        careList.add(ModelLaptopCare(idcare, judulcare, descare))
+                    }
+                    adaptercare.careList = careList
+                    adaptercare.notifyDataSetChanged()
+                } else {
+                    val careList = ArrayList<ModelLaptopCare>()
+                    careList.add(ModelLaptopCare(0, "No Care available", "No Care available"))
                 }
-                adaptercare.careList = careList
-                adaptercare.notifyDataSetChanged()
             },
             { error ->
-                //
+                Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
             })
         requestQueue.add(stringRequest)
     }

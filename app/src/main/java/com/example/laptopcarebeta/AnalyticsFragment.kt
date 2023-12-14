@@ -1,5 +1,6 @@
 package com.example.laptopcarebeta
 
+import android.content.Context
 import android.graphics.PorterDuff
 import android.os.AsyncTask
 import android.os.Bundle
@@ -13,13 +14,23 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.android.volley.DefaultRetryPolicy
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.RetryPolicy
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class AnalyticsFragment : Fragment() {
 
@@ -77,6 +88,8 @@ class AnalyticsFragment : Fragment() {
     }
 
     private fun fetchDataFromServer() {
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val idlap = sharedPreferences.getString("id_laptop", "")
         val serverIp = analyticsiplaptopedittext.text.toString()
         val serverUrl = "http://$serverIp:8000/get_performance"
 
@@ -140,6 +153,45 @@ class AnalyticsFragment : Fragment() {
 
                         analyticsbtnsave.isEnabled = true
                         analyticsbtnsave.background.clearColorFilter()
+
+                        val idlaptop = idlap.toString()
+                        val currentDateTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+                        val desHistori = "CPU Usage: $cpuUsage\nMemory Usage: $memoryUsage\nDisk Usage: $diskUsage\nBattery Info: $batteryInfo\nBattery Health: $batteryHealth\nNetwork Info: $networkInfo\nSystem Info: $systemInfo"
+
+                        analyticsbtnsave.setOnClickListener {
+                            val url = "https://mieruch.000webhostapp.com/analytics_save.php" // ganti dengan URL server Anda
+                            val stringRequest = object : StringRequest(
+                                Request.Method.POST,
+                                url,
+                                Response.Listener<String> { response ->
+                                    // Menggunakan respons di sini
+                                    Toast.makeText(requireContext(), "Berhasil Disave", Toast.LENGTH_SHORT).show()
+                                },
+                                Response.ErrorListener { error ->
+                                    // Menangani kesalahan di sini
+                                    if (error.networkResponse != null && error.networkResponse.statusCode == 500) {
+                                        Toast.makeText(requireContext(), "Server error: 500", Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                            ) {
+                                override fun getParams(): HashMap<String, String> {
+                                    val params = HashMap<String, String>()
+                                    params["judul_histori"] = currentDateTime
+                                    params["des_histori"] = desHistori
+                                    params["id_laptop"] = idlaptop
+                                    return params
+                                }
+                            }
+                            val socketTimeout = 30000 // 30 detik
+                            val policy: RetryPolicy = DefaultRetryPolicy(socketTimeout,
+                                DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
+                            stringRequest.retryPolicy = policy
+                            val requestQueue = Volley.newRequestQueue(requireContext())
+                            requestQueue.add(stringRequest)
+                        }
+
                     }
                 } else {
                     requireActivity().runOnUiThread {

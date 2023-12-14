@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -73,20 +74,27 @@ class HomeFragment : Fragment() {
             Request.Method.GET, url,
             { response ->
                 val jsonObject = JSONObject(response)
-                val jsonArray = jsonObject.getJSONArray("data")
-                val infolaptopList = ArrayList<Modelinfolaptop>()
-                for (i in 0 until jsonArray.length()) {
-                    val jsonObject = jsonArray.getJSONObject(i)
-                    val idinfolaptop = jsonObject.getInt("id_info_laptop")
-                    val namainfolaptop = jsonObject.getString("nama_info_laptop")
-                    val desinfolaptop = jsonObject.getString("des_info_laptop")
-                    infolaptopList.add(Modelinfolaptop(idinfolaptop, namainfolaptop, desinfolaptop))
+                if (jsonObject.has("data")) {
+                    val jsonArray = jsonObject.getJSONArray("data")
+                    val infolaptopList = ArrayList<Modelinfolaptop>()
+                    for (i in 0 until jsonArray.length()) {
+                        val jsonObject = jsonArray.getJSONObject(i)
+                        val idinfolaptop = jsonObject.getInt("id_info_laptop")
+                        val namainfolaptop = jsonObject.getString("nama_info_laptop")
+                        val desinfolaptop = jsonObject.getString("des_info_laptop")
+                        infolaptopList.add(Modelinfolaptop(idinfolaptop, namainfolaptop, desinfolaptop))
+                    }
+                    adapter.infolaptopList = infolaptopList
+                    adapter.notifyDataSetChanged()
+                } else {
+                    val infolaptopList = ArrayList<Modelinfolaptop>()
+                    infolaptopList.add(Modelinfolaptop(0, "No Info Laptop available", "No Info Laptop available"))
+                    adapter.infolaptopList = infolaptopList
+                    adapter.notifyDataSetChanged()
                 }
-                adapter.infolaptopList = infolaptopList
-                adapter.notifyDataSetChanged()
             },
             { error ->
-                //
+                Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
             })
         requestQueue.add(stringRequest)
 

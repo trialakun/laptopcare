@@ -11,6 +11,10 @@ data class Modelinfolaptop(val idinfolaptop: Int, val namainfolaptop: String, va
         parcel.readString() ?: ""
     )
 
+    fun isEmpty(): Boolean {
+        return idinfolaptop == 0 && namainfolaptop.isEmpty() && desinfolaptop.isEmpty()
+    }
+
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(idinfolaptop)
         parcel.writeString(namainfolaptop)

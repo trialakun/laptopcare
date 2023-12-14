@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     tools:context=".HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/HistoryRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello history fragment"
-        android:textColor="@color/white"/>
+        android:layout_margin="20dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </FrameLayout>

@@ -11,6 +11,10 @@ class ModelLaptopCare (val idcare: Int, val judulcare: String, val descare: Stri
         parcel.readString() ?: ""
     )
 
+    fun isEmpty(): Boolean {
+        return idcare == 0 && judulcare.isEmpty() && descare.isEmpty()
+    }
+
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(idcare)
         parcel.writeString(judulcare)

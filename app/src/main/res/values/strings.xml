@@ -65,4 +65,6 @@
     <string name="deskripsi_cara_perawatan_laptop">Deskripsi Cara Perawatan Laptop</string>
     <string name="informasi_care">Informasi Care</string>
     <string name="deskripsi_informasi_care">Deskripsi Informasi Care</string>
+    <string name="informasi_history">Informasi History</string>
+    <string name="deskripsi_informasi_history">Deskripsi Informasi History</string>
 </resources>
